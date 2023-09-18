@@ -14,4 +14,3 @@ clean_data = raw_data %>%
 
 use_git_config(user.name = "reidbrok",user.email = "yushuzou@gmail.com")
 use_git()
-use_github()
