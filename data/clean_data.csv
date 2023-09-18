@@ -1,0 +1,533 @@
+"","Country.Name","Year","MatMor"
+"1","Aruba",2000,NA
+"2","Aruba",2019,NA
+"3","Africa Eastern and Southern",2000,777
+"4","Africa Eastern and Southern",2019,NA
+"5","Afghanistan",2000,1450
+"6","Afghanistan",2019,NA
+"7","Africa Western and Central",2000,1000
+"8","Africa Western and Central",2019,NA
+"9","Angola",2000,827
+"10","Angola",2019,NA
+"11","Albania",2000,23
+"12","Albania",2019,NA
+"13","Andorra",2000,NA
+"14","Andorra",2019,NA
+"15","Arab World",2000,250
+"16","Arab World",2019,NA
+"17","United Arab Emirates",2000,6
+"18","United Arab Emirates",2019,NA
+"19","Argentina",2000,66
+"20","Argentina",2019,NA
+"21","Armenia",2000,43
+"22","Armenia",2019,NA
+"23","American Samoa",2000,NA
+"24","American Samoa",2019,NA
+"25","Antigua and Barbuda",2000,44
+"26","Antigua and Barbuda",2019,NA
+"27","Australia",2000,7
+"28","Australia",2019,NA
+"29","Austria",2000,6
+"30","Austria",2019,NA
+"31","Azerbaijan",2000,47
+"32","Azerbaijan",2019,NA
+"33","Burundi",2000,1010
+"34","Burundi",2019,NA
+"35","Belgium",2000,8
+"36","Belgium",2019,NA
+"37","Benin",2000,520
+"38","Benin",2019,NA
+"39","Burkina Faso",2000,516
+"40","Burkina Faso",2019,NA
+"41","Bangladesh",2000,434
+"42","Bangladesh",2019,NA
+"43","Bulgaria",2000,19
+"44","Bulgaria",2019,NA
+"45","Bahrain",2000,27
+"46","Bahrain",2019,NA
+"47","Bahamas, The",2000,75
+"48","Bahamas, The",2019,NA
+"49","Bosnia and Herzegovina",2000,17
+"50","Bosnia and Herzegovina",2019,NA
+"51","Belarus",2000,22
+"52","Belarus",2019,NA
+"53","Belize",2000,89
+"54","Belize",2019,NA
+"55","Bermuda",2000,NA
+"56","Bermuda",2019,NA
+"57","Bolivia",2000,331
+"58","Bolivia",2019,NA
+"59","Brazil",2000,69
+"60","Brazil",2019,NA
+"61","Barbados",2000,50
+"62","Barbados",2019,NA
+"63","Brunei Darussalam",2000,28
+"64","Brunei Darussalam",2019,NA
+"65","Bhutan",2000,423
+"66","Bhutan",2019,NA
+"67","Botswana",2000,262
+"68","Botswana",2019,NA
+"69","Central African Republic",2000,1280
+"70","Central African Republic",2019,NA
+"71","Canada",2000,9
+"72","Canada",2019,NA
+"73","Central Europe and the Baltics",2000,20
+"74","Central Europe and the Baltics",2019,NA
+"75","Switzerland",2000,7
+"76","Switzerland",2019,NA
+"77","Channel Islands",2000,NA
+"78","Channel Islands",2019,NA
+"79","Chile",2000,31
+"80","Chile",2019,NA
+"81","China",2000,59
+"82","China",2019,NA
+"83","Cote d'Ivoire",2000,704
+"84","Cote d'Ivoire",2019,NA
+"85","Cameroon",2000,886
+"86","Cameroon",2019,NA
+"87","Congo, Dem. Rep.",2000,760
+"88","Congo, Dem. Rep.",2019,NA
+"89","Congo, Rep.",2000,739
+"90","Congo, Rep.",2019,NA
+"91","Colombia",2000,94
+"92","Colombia",2019,NA
+"93","Comoros",2000,444
+"94","Comoros",2019,NA
+"95","Cabo Verde",2000,118
+"96","Cabo Verde",2019,NA
+"97","Costa Rica",2000,40
+"98","Costa Rica",2019,NA
+"99","Caribbean small states",2000,112
+"100","Caribbean small states",2019,NA
+"101","Cuba",2000,46
+"102","Cuba",2019,NA
+"103","Curacao",2000,NA
+"104","Curacao",2019,NA
+"105","Cayman Islands",2000,NA
+"106","Cayman Islands",2019,NA
+"107","Cyprus",2000,14
+"108","Cyprus",2019,NA
+"109","Czechia",2000,7
+"110","Czechia",2019,NA
+"111","Germany",2000,7
+"112","Germany",2019,NA
+"113","Djibouti",2000,507
+"114","Djibouti",2019,NA
+"115","Dominica",2000,NA
+"116","Dominica",2019,NA
+"117","Denmark",2000,8
+"118","Denmark",2019,NA
+"119","Dominican Republic",2000,80
+"120","Dominican Republic",2019,NA
+"121","Algeria",2000,161
+"122","Algeria",2019,NA
+"123","East Asia & Pacific (excluding high income)",2000,121
+"124","East Asia & Pacific (excluding high income)",2019,NA
+"125","Early-demographic dividend",2000,326
+"126","Early-demographic dividend",2019,NA
+"127","East Asia & Pacific",2000,114
+"128","East Asia & Pacific",2019,NA
+"129","Europe & Central Asia (excluding high income)",2000,45
+"130","Europe & Central Asia (excluding high income)",2019,NA
+"131","Europe & Central Asia",2000,27
+"132","Europe & Central Asia",2019,NA
+"133","Ecuador",2000,122
+"134","Ecuador",2019,NA
+"135","Egypt, Arab Rep.",2000,64
+"136","Egypt, Arab Rep.",2019,NA
+"137","Euro area",2000,8
+"138","Euro area",2019,NA
+"139","Eritrea",2000,1280
+"140","Eritrea",2019,NA
+"141","Spain",2000,5
+"142","Spain",2019,NA
+"143","Estonia",2000,29
+"144","Estonia",2019,NA
+"145","Ethiopia",2000,1030
+"146","Ethiopia",2019,NA
+"147","European Union",2000,10
+"148","European Union",2019,NA
+"149","Fragile and conflict affected situations",2000,840
+"150","Fragile and conflict affected situations",2019,NA
+"151","Finland",2000,6
+"152","Finland",2019,NA
+"153","Fiji",2000,51
+"154","Fiji",2019,NA
+"155","France",2000,10
+"156","France",2019,NA
+"157","Faroe Islands",2000,NA
+"158","Faroe Islands",2019,NA
+"159","Micronesia, Fed. Sts.",2000,154
+"160","Micronesia, Fed. Sts.",2019,NA
+"161","Gabon",2000,380
+"162","Gabon",2019,NA
+"163","United Kingdom",2000,10
+"164","United Kingdom",2019,NA
+"165","Georgia",2000,31
+"166","Georgia",2019,NA
+"167","Ghana",2000,484
+"168","Ghana",2019,NA
+"169","Gibraltar",2000,NA
+"170","Gibraltar",2019,NA
+"171","Guinea",2000,1020
+"172","Guinea",2019,NA
+"173","Gambia, The",2000,932
+"174","Gambia, The",2019,NA
+"175","Guinea-Bissau",2000,1210
+"176","Guinea-Bissau",2019,NA
+"177","Equatorial Guinea",2000,454
+"178","Equatorial Guinea",2019,NA
+"179","Greece",2000,3
+"180","Greece",2019,NA
+"181","Grenada",2000,38
+"182","Grenada",2019,NA
+"183","Greenland",2000,NA
+"184","Greenland",2019,NA
+"185","Guatemala",2000,161
+"186","Guatemala",2019,NA
+"187","Guam",2000,NA
+"188","Guam",2019,NA
+"189","Guyana",2000,231
+"190","Guyana",2019,NA
+"191","High income",2000,13
+"192","High income",2019,NA
+"193","Hong Kong SAR, China",2000,NA
+"194","Hong Kong SAR, China",2019,NA
+"195","Honduras",2000,85
+"196","Honduras",2019,NA
+"197","Heavily indebted poor countries (HIPC)",2000,835
+"198","Heavily indebted poor countries (HIPC)",2019,NA
+"199","Croatia",2000,11
+"200","Croatia",2019,NA
+"201","Haiti",2000,437
+"202","Haiti",2019,NA
+"203","Hungary",2000,16
+"204","Hungary",2019,NA
+"205","IBRD only",2000,199
+"206","IBRD only",2019,NA
+"207","IDA & IBRD total",2000,377
+"208","IDA & IBRD total",2019,NA
+"209","IDA total",2000,720
+"210","IDA total",2019,NA
+"211","IDA blend",2000,717
+"212","IDA blend",2019,NA
+"213","Indonesia",2000,272
+"214","Indonesia",2019,NA
+"215","IDA only",2000,722
+"216","IDA only",2019,NA
+"217","Isle of Man",2000,NA
+"218","Isle of Man",2019,NA
+"219","India",2000,370
+"220","India",2019,NA
+"221","Not classified",2000,NA
+"222","Not classified",2019,NA
+"223","Ireland",2000,7
+"224","Ireland",2019,NA
+"225","Iran, Islamic Rep.",2000,48
+"226","Iran, Islamic Rep.",2019,NA
+"227","Iraq",2000,79
+"228","Iraq",2019,NA
+"229","Iceland",2000,6
+"230","Iceland",2019,NA
+"231","Israel",2000,7
+"232","Israel",2019,NA
+"233","Italy",2000,4
+"234","Italy",2019,NA
+"235","Jamaica",2000,77
+"236","Jamaica",2019,NA
+"237","Jordan",2000,70
+"238","Jordan",2019,NA
+"239","Japan",2000,9
+"240","Japan",2019,NA
+"241","Kazakhstan",2000,61
+"242","Kazakhstan",2019,NA
+"243","Kenya",2000,708
+"244","Kenya",2019,NA
+"245","Kyrgyz Republic",2000,79
+"246","Kyrgyz Republic",2019,NA
+"247","Cambodia",2000,488
+"248","Cambodia",2019,NA
+"249","Kiribati",2000,136
+"250","Kiribati",2019,NA
+"251","St. Kitts and Nevis",2000,NA
+"252","St. Kitts and Nevis",2019,NA
+"253","Korea, Rep.",2000,17
+"254","Korea, Rep.",2019,NA
+"255","Kuwait",2000,10
+"256","Kuwait",2019,NA
+"257","Latin America & Caribbean (excluding high income)",2000,97
+"258","Latin America & Caribbean (excluding high income)",2019,NA
+"259","Lao PDR",2000,544
+"260","Lao PDR",2019,NA
+"261","Lebanon",2000,28
+"262","Lebanon",2019,NA
+"263","Liberia",2000,894
+"264","Liberia",2019,NA
+"265","Libya",2000,70
+"266","Libya",2019,NA
+"267","St. Lucia",2000,86
+"268","St. Lucia",2019,NA
+"269","Latin America & Caribbean",2000,96
+"270","Latin America & Caribbean",2019,NA
+"271","Least developed countries: UN classification",2000,763
+"272","Least developed countries: UN classification",2019,NA
+"273","Low income",2000,845
+"274","Low income",2019,NA
+"275","Liechtenstein",2000,NA
+"276","Liechtenstein",2019,NA
+"277","Sri Lanka",2000,56
+"278","Sri Lanka",2019,NA
+"279","Lower middle income",2000,422
+"280","Lower middle income",2019,NA
+"281","Low & middle income",2000,379
+"282","Low & middle income",2019,NA
+"283","Lesotho",2000,614
+"284","Lesotho",2019,NA
+"285","Late-demographic dividend",2000,62
+"286","Late-demographic dividend",2019,NA
+"287","Lithuania",2000,17
+"288","Lithuania",2019,NA
+"289","Luxembourg",2000,10
+"290","Luxembourg",2019,NA
+"291","Latvia",2000,34
+"292","Latvia",2019,NA
+"293","Macao SAR, China",2000,NA
+"294","Macao SAR, China",2019,NA
+"295","St. Martin (French part)",2000,NA
+"296","St. Martin (French part)",2019,NA
+"297","Morocco",2000,188
+"298","Morocco",2019,NA
+"299","Monaco",2000,NA
+"300","Monaco",2019,NA
+"301","Moldova",2000,44
+"302","Moldova",2019,NA
+"303","Madagascar",2000,559
+"304","Madagascar",2019,NA
+"305","Maldives",2000,125
+"306","Maldives",2019,NA
+"307","Middle East & North Africa",2000,96
+"308","Middle East & North Africa",2019,NA
+"309","Mexico",2000,55
+"310","Mexico",2019,NA
+"311","Marshall Islands",2000,NA
+"312","Marshall Islands",2019,NA
+"313","Middle income",2000,301
+"314","Middle income",2019,NA
+"315","North Macedonia",2000,13
+"316","North Macedonia",2019,NA
+"317","Mali",2000,836
+"318","Mali",2019,NA
+"319","Malta",2000,9
+"320","Malta",2019,NA
+"321","Myanmar",2000,340
+"322","Myanmar",2019,NA
+"323","Middle East & North Africa (excluding high income)",2000,106
+"324","Middle East & North Africa (excluding high income)",2019,NA
+"325","Montenegro",2000,12
+"326","Montenegro",2019,NA
+"327","Mongolia",2000,155
+"328","Mongolia",2019,NA
+"329","Northern Mariana Islands",2000,NA
+"330","Northern Mariana Islands",2019,NA
+"331","Mozambique",2000,798
+"332","Mozambique",2019,NA
+"333","Mauritania",2000,834
+"334","Mauritania",2019,NA
+"335","Mauritius",2000,59
+"336","Mauritius",2019,NA
+"337","Malawi",2000,749
+"338","Malawi",2019,NA
+"339","Malaysia",2000,38
+"340","Malaysia",2019,NA
+"341","North America",2000,12
+"342","North America",2019,NA
+"343","Namibia",2000,348
+"344","Namibia",2019,NA
+"345","New Caledonia",2000,NA
+"346","New Caledonia",2019,NA
+"347","Niger",2000,813
+"348","Niger",2019,NA
+"349","Nigeria",2000,1200
+"350","Nigeria",2019,NA
+"351","Nicaragua",2000,162
+"352","Nicaragua",2019,NA
+"353","Netherlands",2000,13
+"354","Netherlands",2019,NA
+"355","Norway",2000,6
+"356","Norway",2019,NA
+"357","Nepal",2000,553
+"358","Nepal",2019,NA
+"359","Nauru",2000,NA
+"360","Nauru",2019,NA
+"361","New Zealand",2000,12
+"362","New Zealand",2019,NA
+"363","OECD members",2000,24
+"364","OECD members",2019,NA
+"365","Oman",2000,20
+"366","Oman",2019,NA
+"367","Other small states",2000,489
+"368","Other small states",2019,NA
+"369","Pakistan",2000,286
+"370","Pakistan",2019,NA
+"371","Panama",2000,91
+"372","Panama",2019,NA
+"373","Peru",2000,144
+"374","Peru",2019,NA
+"375","Philippines",2000,160
+"376","Philippines",2019,NA
+"377","Palau",2000,NA
+"378","Palau",2019,NA
+"379","Papua New Guinea",2000,249
+"380","Papua New Guinea",2019,NA
+"381","Poland",2000,7
+"382","Poland",2019,NA
+"383","Pre-demographic dividend",2000,896
+"384","Pre-demographic dividend",2019,NA
+"385","Puerto Rico",2000,26
+"386","Puerto Rico",2019,NA
+"387","Korea, Dem. People's Rep.",2000,139
+"388","Korea, Dem. People's Rep.",2019,NA
+"389","Portugal",2000,10
+"390","Portugal",2019,NA
+"391","Paraguay",2000,194
+"392","Paraguay",2019,NA
+"393","West Bank and Gaza",2000,70
+"394","West Bank and Gaza",2019,NA
+"395","Pacific island small states",2000,128
+"396","Pacific island small states",2019,NA
+"397","Post-demographic dividend",2000,12
+"398","Post-demographic dividend",2019,NA
+"399","French Polynesia",2000,NA
+"400","French Polynesia",2019,NA
+"401","Qatar",2000,14
+"402","Qatar",2019,NA
+"403","Romania",2000,54
+"404","Romania",2019,NA
+"405","Russian Federation",2000,56
+"406","Russian Federation",2019,NA
+"407","Rwanda",2000,1160
+"408","Rwanda",2019,NA
+"409","South Asia",2000,395
+"410","South Asia",2019,NA
+"411","Saudi Arabia",2000,24
+"412","Saudi Arabia",2019,NA
+"413","Sudan",2000,667
+"414","Sudan",2019,NA
+"415","Senegal",2000,553
+"416","Senegal",2019,NA
+"417","Singapore",2000,13
+"418","Singapore",2019,NA
+"419","Solomon Islands",2000,245
+"420","Solomon Islands",2019,NA
+"421","Sierra Leone",2000,2480
+"422","Sierra Leone",2019,NA
+"423","El Salvador",2000,73
+"424","El Salvador",2019,NA
+"425","San Marino",2000,NA
+"426","San Marino",2019,NA
+"427","Somalia",2000,1210
+"428","Somalia",2019,NA
+"429","Serbia",2000,13
+"430","Serbia",2019,NA
+"431","Sub-Saharan Africa (excluding high income)",2000,870
+"432","Sub-Saharan Africa (excluding high income)",2019,NA
+"433","South Sudan",2000,1730
+"434","South Sudan",2019,NA
+"435","Sub-Saharan Africa",2000,870
+"436","Sub-Saharan Africa",2019,NA
+"437","Small states",2000,400
+"438","Small states",2019,NA
+"439","Sao Tome and Principe",2000,179
+"440","Sao Tome and Principe",2019,NA
+"441","Suriname",2000,221
+"442","Suriname",2019,NA
+"443","Slovak Republic",2000,8
+"444","Slovak Republic",2019,NA
+"445","Slovenia",2000,12
+"446","Slovenia",2019,NA
+"447","Sweden",2000,5
+"448","Sweden",2019,NA
+"449","Eswatini",2000,521
+"450","Eswatini",2019,NA
+"451","Sint Maarten (Dutch part)",2000,NA
+"452","Sint Maarten (Dutch part)",2019,NA
+"453","Seychelles",2000,53
+"454","Seychelles",2019,NA
+"455","Syrian Arab Republic",2000,26
+"456","Syrian Arab Republic",2019,NA
+"457","Turks and Caicos Islands",2000,NA
+"458","Turks and Caicos Islands",2019,NA
+"459","Chad",2000,1420
+"460","Chad",2019,NA
+"461","East Asia & Pacific (IDA & IBRD countries)",2000,121
+"462","East Asia & Pacific (IDA & IBRD countries)",2019,NA
+"463","Europe & Central Asia (IDA & IBRD countries)",2000,43
+"464","Europe & Central Asia (IDA & IBRD countries)",2019,NA
+"465","Togo",2000,489
+"466","Togo",2019,NA
+"467","Thailand",2000,43
+"468","Thailand",2019,NA
+"469","Tajikistan",2000,53
+"470","Tajikistan",2019,NA
+"471","Turkmenistan",2000,29
+"472","Turkmenistan",2019,NA
+"473","Latin America & the Caribbean (IDA & IBRD countries)",2000,97
+"474","Latin America & the Caribbean (IDA & IBRD countries)",2019,NA
+"475","Timor-Leste",2000,745
+"476","Timor-Leste",2019,NA
+"477","Middle East & North Africa (IDA & IBRD countries)",2000,106
+"478","Middle East & North Africa (IDA & IBRD countries)",2019,NA
+"479","Tonga",2000,77
+"480","Tonga",2019,NA
+"481","South Asia (IDA & IBRD)",2000,395
+"482","South Asia (IDA & IBRD)",2019,NA
+"483","Sub-Saharan Africa (IDA & IBRD countries)",2000,870
+"484","Sub-Saharan Africa (IDA & IBRD countries)",2019,NA
+"485","Trinidad and Tobago",2000,81
+"486","Trinidad and Tobago",2019,NA
+"487","Tunisia",2000,66
+"488","Tunisia",2019,NA
+"489","Turkiye",2000,42
+"490","Turkiye",2019,NA
+"491","Tuvalu",2000,NA
+"492","Tuvalu",2019,NA
+"493","Tanzania",2000,854
+"494","Tanzania",2019,NA
+"495","Uganda",2000,578
+"496","Uganda",2019,NA
+"497","Ukraine",2000,35
+"498","Ukraine",2019,NA
+"499","Upper middle income",2000,67
+"500","Upper middle income",2019,NA
+"501","Uruguay",2000,26
+"502","Uruguay",2019,NA
+"503","United States",2000,12
+"504","United States",2019,NA
+"505","Uzbekistan",2000,41
+"506","Uzbekistan",2019,NA
+"507","St. Vincent and the Grenadines",2000,80
+"508","St. Vincent and the Grenadines",2019,NA
+"509","Venezuela, RB",2000,119
+"510","Venezuela, RB",2019,NA
+"511","British Virgin Islands",2000,NA
+"512","British Virgin Islands",2019,NA
+"513","Virgin Islands (U.S.)",2000,NA
+"514","Virgin Islands (U.S.)",2019,NA
+"515","Vietnam",2000,68
+"516","Vietnam",2019,NA
+"517","Vanuatu",2000,140
+"518","Vanuatu",2019,NA
+"519","World",2000,342
+"520","World",2019,NA
+"521","Samoa",2000,88
+"522","Samoa",2019,NA
+"523","Kosovo",2000,NA
+"524","Kosovo",2019,NA
+"525","Yemen, Rep.",2000,301
+"526","Yemen, Rep.",2019,NA
+"527","South Africa",2000,160
+"528","South Africa",2019,NA
+"529","Zambia",2000,528
+"530","Zambia",2019,NA
+"531","Zimbabwe",2000,579
+"532","Zimbabwe",2019,NA
