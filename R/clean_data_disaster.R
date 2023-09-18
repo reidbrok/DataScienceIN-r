@@ -13,4 +13,5 @@ clean_data = raw_data %>%
   summarize(Drought = max(Drought), Earthquake = max(Earthquake))
 
 use_git_config(user.name = "reidbrok",user.email = "yushuzou@gmail.com")
-use_git()
+
+
