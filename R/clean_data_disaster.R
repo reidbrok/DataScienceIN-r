@@ -10,3 +10,4 @@ disaster_data_cleaned = disaseter_data_raw %>%
          Earthquake = ifelse(Disaster.Type == "Earthquake",1,0)) %>%
   group_by(Year, ISO) %>%
   summarize(Drought = max(Drought), Earthquake = max(Earthquake))
+
