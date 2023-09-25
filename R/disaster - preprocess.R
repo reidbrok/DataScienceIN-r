@@ -11,3 +11,5 @@ disaster_data_cleaned = disaseter_data_raw %>%
   group_by(Year, ISO) %>%
   summarize(Drought = max(Drought), Earthquake = max(Earthquake))
 
+
+write.csv(disaster_data_cleaned, here("data","disaster.csv"))
