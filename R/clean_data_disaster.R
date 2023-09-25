@@ -12,6 +12,6 @@ clean_data = raw_data %>%
   group_by(Year, ISO) %>%
   summarize(Drought = max(Drought), Earthquake = max(Earthquake))
 
-use_git_config(user.name = "reidbrok",user.email = "yushuzou@gmail.com")
+
 
 
