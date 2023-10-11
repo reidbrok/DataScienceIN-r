@@ -9,6 +9,8 @@ editor: visual
 ```{r}
 library(tidyverse) 
 library(here)
+library(corrplot)
+library(regclass)
 ```
 
 # Reading Data
@@ -54,12 +56,12 @@ summary(data)
 
 # Conclusion from Step 1 & 2:
 
-The data seems fine, but for variables (`armed.conflict`,`OECD`,`OECD2023`,`Drought`, `Earthquake`), these I would code them as factor, since they are binary variables.
+The data seems fine, but for variables (`armed.conflict`,`Drought`, `Earthquake`), these I would code them as factor, since they are binary variables.
 
-And we need aware there are many missing values in the morality rate variables(`Infant.mortality.rate`,`Under.5.mortality.rate`,`Neonatal.mortality.rate`, `Maternal.mortality.rate`), armed conflict variables (`armed.conflict`) and disaster variables (`Drought`,`Earthquake`)
+And we need aware there are missing data in all four outcome variables (`Infant.mortality.rate`,`Under.5.mortality.rate`,`Neonatal.mortality.rate`, `Maternal.mortality.rate`)
 
 ```{r}
-data = data %>% mutate(armed.conflict = as.factor(armed.conflict), OECD = as.factor(OECD), OECD2023 = as.factor(OECD2023), Drought = as.factor(Drought), Earthquake = as.factor(Earthquake) )
+data = data %>% mutate(armed.conflict = as.factor(armed.conflict), Drought = as.factor(Drought), Earthquake = as.factor(Earthquake)) 
 ```
 
 # Step 3 - Understand the distribution of the individual variables
@@ -69,16 +71,188 @@ data = data %>% mutate(armed.conflict = as.factor(armed.conflict), OECD = as.fac
 ```{r}
 data %>% 
   ggplot(aes(x = Infant.mortality.rate)) +
-  geom_histogram(bins = 100)
+  geom_histogram(bins = 100)+
+  labs(
+    x = "Infant Mortality"
+  )
 data %>% 
   ggplot(aes(x = Under.5.mortality.rate)) +
-  geom_histogram(bins = 100)
+  geom_histogram(bins = 100)+
+  labs(
+    x = "Under 5 Mortality"
+  )
 data %>% 
   ggplot(aes(x = Neonatal.mortality.rate)) +
-  geom_histogram(bins = 100)
+  geom_histogram(bins = 100)+
+  labs(
+    x = "Neomatal Mortality"
+  )
 data %>% 
   ggplot(aes(x = Maternal.mortality.rate)) +
-  geom_histogram(bins = 100)
+  geom_histogram(bins = 100) +
+  labs(
+    x = "Maternal Mortality"
+  )
 ```
 
--   Summary: We can see the mortality rate variables are highly right skewed
+Summary: We can see the mortality rate variables are highly right skewed.
+
+Since mortality rate variables have wide range, one way to enhance the visualization is scale the variables on logarithm.
+
+```{r}
+data %>% 
+  ggplot(aes(x = Infant.mortality.rate)) +
+  geom_histogram(bins = 100)+
+  labs(
+    x = "Infant Mortality"
+  ) + 
+  scale_x_log10()
+
+data %>% 
+  ggplot(aes(x = Under.5.mortality.rate)) +
+  geom_histogram(bins = 100)+
+  labs(
+    x = "Under 5 Mortality"
+  )+
+  scale_x_log10()
+
+data %>% 
+  ggplot(aes(x = Neonatal.mortality.rate)) +
+  geom_histogram(bins = 100)+
+  labs(
+    x = "Neomatal Mortality"
+  )+
+  scale_x_log10()
+
+data %>% 
+  ggplot(aes(x = Maternal.mortality.rate)) +
+  geom_histogram(bins = 100) +
+  labs(
+    x = "Maternal Mortality"
+  )+
+  scale_x_log10()
+
+```
+
+# Step 4 Understand the relationship between multiple variables
+
+-   Relationship between main predictor (armed conflict) and outcome variables
+
+Since Armed Conflict is categorical variable, Mortality Rate are numeric variables and not normal distributed, boxplots are suitable for investigate the relationship between armed conflict and mortality rate
+
+```{r}
+data %>% 
+  ggplot(aes(x = armed.conflict,y = Infant.mortality.rate)) +
+  geom_boxplot()+
+  labs(
+    x = "Armed Conflict",
+    y = "Infant Mortality"
+  )
+data %>% 
+  ggplot(aes(x = armed.conflict,y =  Under.5.mortality.rate)) +
+  geom_boxplot()+
+  labs(
+    x = "Armed Conflict",
+    y = "Under 5 Mortality"
+  )
+data %>% 
+  ggplot(aes(x = armed.conflict,y = Neonatal.mortality.rate)) +
+  geom_boxplot()+
+  labs(
+    x = "Armed Conflict",
+    y = "Neomatal Mortality"
+  )
+data %>% 
+  ggplot(aes(x = armed.conflict,y = Maternal.mortality.rate)) +
+  geom_boxplot() +
+  labs(
+    x = "Armed Conflict",
+    y = "Maternal Mortality"
+  )
+```
+We can find that when armed conflict exists (Armed Conflict = 1), morality would have higher median compared to no armed conflict. 
+
+We can further check the relationship between the mortality rate and armed conflict on different country through years
+
+```{r}
+new_labels <- c("0" = "No Armed Conflict", "1" = "Exist Armed Conflict","NA" = "Missing")
+data %>% 
+ggplot(aes(x=Year, y = Maternal.mortality.rate, color = armed.conflict)) + 
+  geom_line(aes(group=ISO)) +
+  facet_wrap(~armed.conflict,labeller = labeller(armed.conflict = new_labels))+
+  scale_y_log10() + 
+  labs(
+    x = "Year",
+    y = "Maternal Mortality Rate"
+  )+
+  guides(color = FALSE)
+data %>% 
+ggplot(aes(x=Year, y = Infant.mortality.rate, color = armed.conflict)) + 
+  geom_line(aes(group=ISO))+
+  facet_wrap(~armed.conflict,labeller = labeller(armed.conflict = new_labels))+
+  scale_y_log10() + 
+  labs(
+    x = "Year",
+    y = "Infant Mortality Rate"
+  )+
+  guides(color = FALSE)
+data %>% 
+ggplot(aes(x=Year, y = Neonatal.mortality.rate, color = armed.conflict)) + 
+  geom_line(aes(group=ISO))+
+  facet_wrap(~armed.conflict,labeller = labeller(armed.conflict = new_labels))+
+  scale_y_log10() + 
+  labs(
+    x = "Year",
+    y = "Neonatal Mortality Rate"
+  )+
+  guides(color = FALSE)
+data %>% 
+ggplot(aes(x=Year, y=Under.5.mortality.rate, color = armed.conflict)) + 
+  geom_line(aes(group=ISO))+
+  facet_wrap(~armed.conflict,labeller = labeller(armed.conflict = new_labels))+
+  scale_y_log10() + 
+  labs(
+    x = "Year",
+    y = "Under 5 Mortality Rate"
+  )+
+  guides(color = FALSE)
+
+```
+
+We can see that almost all the country has a decrease trend on mortality rate over years no matter if there exists armed conflict.
+
+# Linear Model
+
+-   Removing the rest missing values
+
+```{r}
+data = data %>% drop_na()
+# 
+```
+
+-   Checking multicollinear
+
+```{r}
+M = cor(data%>% select(-c(Year,country_name,ISO,region,Infant.mortality.rate,Maternal.mortality.rate,Neonatal.mortality.rate,Under.5.mortality.rate,Drought,Earthquake,armed.conflict)))
+corrplot(M, method = 'number') # colorful number
+```
+
+-   Fit full Linear Regression Model
+
+Since OECD and OECD2023 are same, so we need to drop one column
+
+$$Outcome_{it} = \beta_0 + \beta_1 * Conflict_{it} + \beta_2 * Covariates_{it}+ i + t + u_{it}$$
+
+```{r}
+full_maternal_model =  lm(Maternal.mortality.rate ~  armed.conflict + Earthquake + Drought + OECD + GDP + male_edu + temp + popdens + urban + agedep + Year + ISO, data = data)
+summary(full_maternal_model)
+plot(full_maternal_model$residuals)
+```
+```{r}
+reduce_maternal_model =  lm(Maternal.mortality.rate ~  armed.conflict, data = data)
+summary(reduce_maternal_model)
+plot(reduce_maternal_model$residuals)
+```
+
+Summary: We can see that when we build both full model and reduced model, armed conflict has statistically significant effect on the outcome variable (Marternal mortality rate). However, the residual from both model shows that the model fit may have some problems since the residual plot does not randomly distributed, we will focus on that in further analysis.
+

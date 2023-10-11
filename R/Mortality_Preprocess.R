@@ -11,8 +11,8 @@ rawdat_under5 <- read.csv(here("original","under5mortality.csv"))
 
 ### Clean Dataset
 DataClean <- function(x){
-  x%>% select(c("Country.Name", "X2000", "X2019")) %>% 
-    pivot_longer(c("X2000", "X2019"), names_to = "Year",names_prefix = "X", values_to = "MatMor") %>%
+  x%>% select(c("Country.Name", "X2000":"X2019")) %>% 
+    pivot_longer(c("X2000":"X2019"), names_to = "Year",names_prefix = "X", values_to = "MatMor") %>%
     mutate(Year = as.numeric(Year))
 }
 
