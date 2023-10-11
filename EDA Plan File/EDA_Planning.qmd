@@ -6,7 +6,7 @@ editor: visual
 
 # Loading Library
 
-```{r}
+```{r,echo = F, message = F, warning=F}
 library(tidyverse) 
 library(here)
 library(corrplot)
@@ -15,7 +15,7 @@ library(regclass)
 
 # Reading Data
 
-```{r}
+```{r,echo = F, message = F, warning=F}
 data <- read.csv(here("data","final_analytical_data.csv"), row.names = NULL)
 ```
 
@@ -23,19 +23,19 @@ data <- read.csv(here("data","final_analytical_data.csv"), row.names = NULL)
 
 -   Look at the **top** of the data
 
-```{r}
+```{r,echo = F, message = F, warning=F}
 head(data) # First 6 rows of data
 ```
 
 -   Look at the **bottom** of the data
 
-```{r}
+```{r,echo = F, message = F, warning=F}
 tail(data) # Last 6 rows of data
 ```
 
 -   Look at the **random selection** of the data
 
-```{r}
+```{r,echo = F, message = F, warning=F}
 set.seed(7001)
 data %>% slice_sample(n = 6)
 ```
@@ -44,13 +44,13 @@ data %>% slice_sample(n = 6)
 
 -   Variables and corresponding data type
 
-```{r}
+```{r,echo = F, message = F, warning=F}
 glimpse(data)
 ```
 
 -   The key summary statistics of variables
 
-```{r}
+```{r,echo = F, message = F, warning=F}
 summary(data)
 ```
 
@@ -60,7 +60,7 @@ The data seems fine, but for variables (`armed.conflict`,`Drought`, `Earthquake`
 
 And we need aware there are missing data in all four outcome variables (`Infant.mortality.rate`,`Under.5.mortality.rate`,`Neonatal.mortality.rate`, `Maternal.mortality.rate`)
 
-```{r}
+```{r,echo = F, message = F, warning=F}
 data = data %>% mutate(armed.conflict = as.factor(armed.conflict), Drought = as.factor(Drought), Earthquake = as.factor(Earthquake)) 
 ```
 
@@ -68,7 +68,7 @@ data = data %>% mutate(armed.conflict = as.factor(armed.conflict), Drought = as.
 
 -   For outcome variables (`Infant.mortality.rate`,`Under.5.mortality.rate`,`Neonatal.mortality.rate`, `Maternal.mortality.rate`)
 
-```{r}
+```{r,echo = F, message = F, warning=F}
 data %>% 
   ggplot(aes(x = Infant.mortality.rate)) +
   geom_histogram(bins = 100)+
@@ -99,7 +99,7 @@ Summary: We can see the mortality rate variables are highly right skewed.
 
 Since mortality rate variables have wide range, one way to enhance the visualization is scale the variables on logarithm.
 
-```{r}
+```{r,echo = F, message = F, warning=F}
 data %>% 
   ggplot(aes(x = Infant.mortality.rate)) +
   geom_histogram(bins = 100)+
@@ -140,7 +140,7 @@ data %>%
 
 Since Armed Conflict is categorical variable, Mortality Rate are numeric variables and not normal distributed, boxplots are suitable for investigate the relationship between armed conflict and mortality rate
 
-```{r}
+```{r,echo = F, message = F, warning=F}
 data %>% 
   ggplot(aes(x = armed.conflict,y = Infant.mortality.rate)) +
   geom_boxplot()+
@@ -174,7 +174,7 @@ We can find that when armed conflict exists (Armed Conflict = 1), morality would
 
 We can further check the relationship between the mortality rate and armed conflict on different country through years
 
-```{r}
+```{r,echo = F, message = F, warning=F}
 new_labels <- c("0" = "No Armed Conflict", "1" = "Exist Armed Conflict","NA" = "Missing")
 data %>% 
 ggplot(aes(x=Year, y = Maternal.mortality.rate, color = armed.conflict)) + 
@@ -225,14 +225,13 @@ We can see that almost all the country has a decrease trend on mortality rate ov
 
 -   Removing the rest missing values
 
-```{r}
+```{r,echo = F, message = F, warning=F}
 data = data %>% drop_na()
-# 
 ```
 
 -   Checking multicollinear
 
-```{r}
+```{r,echo = F, message = F, warning=F}
 M = cor(data%>% select(-c(Year,country_name,ISO,region,Infant.mortality.rate,Maternal.mortality.rate,Neonatal.mortality.rate,Under.5.mortality.rate,Drought,Earthquake,armed.conflict)))
 corrplot(M, method = 'number') # colorful number
 ```
@@ -243,12 +242,12 @@ Since OECD and OECD2023 are same, so we need to drop one column
 
 $$Outcome_{it} = \beta_0 + \beta_1 * Conflict_{it} + \beta_2 * Covariates_{it}+ i + t + u_{it}$$
 
-```{r}
+```{r,echo = F, message = F, warning=F}
 full_maternal_model =  lm(Maternal.mortality.rate ~  armed.conflict + Earthquake + Drought + OECD + GDP + male_edu + temp + popdens + urban + agedep + Year + ISO, data = data)
 summary(full_maternal_model)
 plot(full_maternal_model$residuals)
 ```
-```{r}
+```{r,echo = F, message = F, warning=F}
 reduce_maternal_model =  lm(Maternal.mortality.rate ~  armed.conflict, data = data)
 summary(reduce_maternal_model)
 plot(reduce_maternal_model$residuals)
