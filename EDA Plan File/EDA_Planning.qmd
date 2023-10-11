@@ -1,0 +1,84 @@
+---
+title: "EDA Planning"
+format: html
+editor: visual
+---
+
+# Loading Library
+
+```{r}
+library(tidyverse) 
+library(here)
+```
+
+# Reading Data
+
+```{r}
+data <- read.csv(here("data","final_analytical_data.csv"), row.names = NULL)
+```
+
+# Step 1 - Get a quick sense of the data.
+
+-   Look at the **top** of the data
+
+```{r}
+head(data) # First 6 rows of data
+```
+
+-   Look at the **bottom** of the data
+
+```{r}
+tail(data) # Last 6 rows of data
+```
+
+-   Look at the **random selection** of the data
+
+```{r}
+set.seed(7001)
+data %>% slice_sample(n = 6)
+```
+
+# Step 2 - Understand the properties of individual variables
+
+-   Variables and corresponding data type
+
+```{r}
+glimpse(data)
+```
+
+-   The key summary statistics of variables
+
+```{r}
+summary(data)
+```
+
+# Conclusion from Step 1 & 2:
+
+The data seems fine, but for variables (`armed.conflict`,`OECD`,`OECD2023`,`Drought`, `Earthquake`), these I would code them as factor, since they are binary variables.
+
+And we need aware there are many missing values in the morality rate variables(`Infant.mortality.rate`,`Under.5.mortality.rate`,`Neonatal.mortality.rate`, `Maternal.mortality.rate`), armed conflict variables (`armed.conflict`) and disaster variables (`Drought`,`Earthquake`)
+
+```{r}
+data = data %>% mutate(armed.conflict = as.factor(armed.conflict), OECD = as.factor(OECD), OECD2023 = as.factor(OECD2023), Drought = as.factor(Drought), Earthquake = as.factor(Earthquake) )
+```
+
+# Step 3 - Understand the distribution of the individual variables
+
+-   For outcome variables (`Infant.mortality.rate`,`Under.5.mortality.rate`,`Neonatal.mortality.rate`, `Maternal.mortality.rate`)
+
+```{r}
+data %>% 
+  ggplot(aes(x = Infant.mortality.rate)) +
+  geom_histogram(bins = 100)
+data %>% 
+  ggplot(aes(x = Under.5.mortality.rate)) +
+  geom_histogram(bins = 100)
+data %>% 
+  ggplot(aes(x = Neonatal.mortality.rate)) +
+  geom_histogram(bins = 100)
+data %>% 
+  ggplot(aes(x = Maternal.mortality.rate)) +
+  geom_histogram(bins = 100)
+```
+
+-   Summary: We can see the mortality rate variables are highly right skewed
