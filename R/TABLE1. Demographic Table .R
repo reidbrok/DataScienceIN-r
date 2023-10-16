@@ -21,12 +21,38 @@ data$OECD<- as.factor(data$OECD)
 ### Table 1 with column as predictors; row as outcome
 ### For the total column: option 1. show baseline characterstic; option 2. show country-year observation
 ### choose option 1
-my.render.cont <- function(x) {
-  with(stats.apply.rounding(stats.default(x), digits=2), c("","Mean (SD)"=sprintf("%s (&plusmn; %s)", MEAN, SD)))
+#my.render.cont <- function(x) {
+#  with(stats.apply.rounding(stats.default(x), digits=2), c("","Mean (SD)"=sprintf("%s (&plusmn; %s)", MEAN, SD)))
+#}
+# my.render.cat <- function(x) {
+#   c("", sapply(stats.default(x), function(y) with(y,sprintf("%d (%0.0f %%)", FREQ, PCT))))
+# }
+# 
+# render.median.IQR <- function(x, ...) {
+#   c('', 
+#     `Mean (SD)` = sprintf("%s (&plusmn; %s)", round(mean(x), 2), round(sd(x), 2)),
+#     `Median [IQR]` = sprintf("%s [%s, %s]", median(x), 
+#                              quantile(x, 0.25), quantile(x, 0.75)))
+# }
+
+rndr <- function(x, name, ...) {
+  if (!is.numeric(x)) return(render.categorical.default(x))
+  what <- switch(name,
+                 Neonatal.mortality.rate = "Median [Min, Max]",
+                 Infant.mortality.rate = "Median [Min, Max]",
+                 Under.5.mortality.rate = "Median [Min, Max]",
+                 Maternal.mortality.rate = "Median [Min, Max]",
+                 GDP = "Mean (SD)",
+                 popdens = "Mean (SD)",
+                 urban = "Mean (SD)",
+                 agedep = "Mean (SD)",
+                 male_edu = "Mean (SD)",
+                 temp = "Mean (SD)"
+                 )
+  parse.abbrev.render.code(c("", what))(x)
 }
-my.render.cat <- function(x) {
-  c("", sapply(stats.default(x), function(y) with(y,sprintf("%d (%0.0f %%)", FREQ, PCT))))
-}
+
+
 
 levels(data$armed.conflict) <- c("No Armed Conflict","Armed Conflict")
 # labels <- list(
@@ -64,7 +90,7 @@ label(data$Maternal.mortality.rate) = "Maternal mortality ratio per 100,000 live
 
 table1(~ GDP+OECD+popdens+urban+agedep+male_edu+temp+Drought+Earthquake+Infant.mortality.rate+Under.5.mortality.rate+Neonatal.mortality.rate+Maternal.mortality.rate|armed.conflict, 
        data=data,overall=c(left="Total"),caption = "Table 1. Demographic Table",
-     render.continuous=my.render.cont, render.categorical=my.render.cat)
+     render = rndr,)
 # 
 # table1(strata,labels, groupspan=c(1, 2),
 #        render.continuous=my.render.cont, render.categorical=my.render.cat)
