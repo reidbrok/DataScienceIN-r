@@ -23,4 +23,4 @@ monotone_data %>%
   labs(
     x = "Year",
     y = "Maternal Mortality Rate"
-  )
+  ) + ggtitle("Figure. Countries that have increasing maternal mortality rate")
