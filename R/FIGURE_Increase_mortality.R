@@ -18,7 +18,7 @@ monotone_data <- data %>% filter(ISO %in% merge_data$ISO)
 monotone_data %>% 
   ggplot(aes(x=Year, y = Maternal.mortality.rate, color = ISO)) + 
   geom_line(aes(group=ISO)) +
-  facet_wrap(~armed.conflict,labeller = labeller(armed.conflict = new_labels))+
+  #facet_wrap(~armed.conflict,labeller = labeller(armed.conflict = new_labels))+
   scale_y_log10() + theme_minimal()+
   labs(
     x = "Year",
