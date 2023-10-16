@@ -9,6 +9,7 @@ data <- data %>% filter(Year == 2000) ## Create baseline data
 data$armed.conflict <- as.factor(data$armed.conflict)
 data$Drought <- as.factor(data$Drought)
 data$Earthquake<- as.factor(data$Earthquake)
+data$OECD<- as.factor(data$OECD)
 # 
 # [1] "country_name"            "ISO"                     "region"                 
 # [4] "Year"                    "GDP"                     "OECD"                   
@@ -27,7 +28,7 @@ my.render.cat <- function(x) {
   c("", sapply(stats.default(x), function(y) with(y,sprintf("%d (%0.0f %%)", FREQ, PCT))))
 }
 
-levels(data$armed.conflict) <- c("No","Yes")
+levels(data$armed.conflict) <- c("No Armed Conflict","Armed Conflict")
 # labels <- list(
 #   variable = list(
 #   GDP = "GDP per capita",
@@ -59,15 +60,15 @@ label(data$Infant.mortality.rate) = "Infant mortality rate per 1,000 live births
 label(data$Under.5.mortality.rate) = "Under-5 mortality rate per 1,000 live births"
 label(data$Maternal.mortality.rate) = "Maternal mortality ratio per 100,000 live births"
 
-#strata <- c(list(Total=data), split(data, data$armed.conflict))
+# strata <- c(list(Total=data), split(data, data$armed.conflict))
 
 table1(~ GDP+OECD+popdens+urban+agedep+male_edu+temp+Drought+Earthquake+Infant.mortality.rate+Under.5.mortality.rate+Neonatal.mortality.rate+Maternal.mortality.rate|armed.conflict, 
-       data=data,overall=c(left="Total"),
+       data=data,overall=c(left="Total"),caption = "Table 1. Demographic Table",
      render.continuous=my.render.cont, render.categorical=my.render.cat)
 # 
 # table1(strata,labels, groupspan=c(1, 2),
 #        render.continuous=my.render.cont, render.categorical=my.render.cat)
-
+# 
 
 
 
