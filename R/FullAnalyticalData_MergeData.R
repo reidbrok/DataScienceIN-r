@@ -25,4 +25,5 @@ final_data$`armed conflict`[is.na(final_data$`armed conflict`)] <- 0
 # Output Final Data
 write.csv(final_data, here("data","final_analytical_data.csv"),row.names=FALSE)
 
+summary(final_data)
           
