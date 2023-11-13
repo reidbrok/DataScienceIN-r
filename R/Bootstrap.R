@@ -35,6 +35,7 @@ TABLE <- data.frame( Covariate = c("Maternal", "Neonatal","Infant","Under 5"),
                      Estimate = rep(NA,4))
 
 TABLE$Estimate = unlist(c(mor_95$t0,neo_95$t0, inf_95$t0, un5_95$t0),use.names = F)
+TABLE$`Standard Deviation` = unlist(c(round(sd(bootout.mor$t),2),round(sd(bootout.neo$t),2), round(sd(bootout.inf$t),2), round(sd(bootout.un5$t),2)),use.names = F)
 TABLE$`2.5% BCA` = unlist(c(mor_95$bca[,4],neo_95$bca[,4], inf_95$bca[,4], un5_95$bca[,4]),use.names = F)
 TABLE$`97.5% BCA` = unlist(c(mor_95$bca[,5],neo_95$bca[,5], inf_95$bca[,5], un5_95$bca[,5]),use.names = F)
 TABLE$`Sample Size` = rep(nrow(data2017),4)
@@ -42,4 +43,3 @@ TABLE$`Sample Size` = rep(nrow(data2017),4)
 
 library(gridExtra)
 ggsave("BoostrappingCI.pdf",plot=tableGrob(TABLE), path = here("data"))
-dev.off()
