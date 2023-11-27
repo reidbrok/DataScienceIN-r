@@ -1,0 +1,70 @@
+```{r}
+library(here)
+library(tidyverse)
+library(optimx)
+```
+
+```{r}
+data = read.csv(here("data","finaldata.csv"))
+```
+
+```{r}
+a = data %>% filter((year <= 2017) & (year >= 2010)) %>% group_by(ISO) %>% summarise(drought = sum(drought), eqarth = sum(earthquake)) %>% mutate(E = ifelse(eqarth >= 1,1,0),  D = ifelse(drought >= 1,1,0)) %>% select(c(ISO, E, D))
+
+b = data %>% filter(year == 2019) %>% select(c(ISO, armconf1))
+
+df = merge(a, b, by = "ISO")
+
+glm_model <- glm(armconf1 ~ E + D, family =  binomial(link = "logit"), data = df)
+```
+
+
+```{r}
+negll <- function(par){
+y <- df$armconf1
+x1 <- df$E
+x2 <- df$D
+# 1. Calculate xbeta
+xbeta <- par[1] + par[2] * x1 + par[3] * x2 
+# 2. Calculate p
+p <- exp(xbeta) / (1 + exp(xbeta))
+# 3. Calculate negative log-likelihood
+val <- -sum(y * log(p) + (1 - y) * log(1 - p))
+return(val)
+}
+
+
+opt <- optimx(par = c(0,0,0),fn = negll,control = list(trace = 0, all.methods = TRUE))
+summary(opt, order = "convcode")
+
+glm_results <- unname(coef(glm_model))
+coef_opt <- coef(opt)
+
+Results <- lapply(1:nrow(coef_opt), function(i){
+    
+    optimisation_algorithm <- attributes(coef_opt)$dimnames[[1]][i]
+
+    mle_glm1 <- (coef_opt[i, "p1" ] - glm_results[1])
+    mle_glm2 <- (coef_opt[i, "p2"] - glm_results[2])
+    mle_glm3 <- (coef_opt[i, "p3"] - glm_results[3])
+    
+    mean_difference <- mean(mle_glm1, mle_glm2, mle_glm3, na.rm = TRUE)
+    
+    data.frame(optimisation_algorithm, mean_difference)
+    
+  }) %>% 
+    bind_rows() %>% 
+  filter(!is.na(mean_difference)) %>% 
+  mutate(mean_difference = abs(mean_difference)) %>%
+  mutate(se_p1 = NA,se_p2 = NA,se_p3 = NA )
+
+hessian_m <- attributes(opt)$details[, "nhatend"]
+hessian_m = hessian_m[sapply(hessian_m, function(x) !all(is.na(x)))]
+for (i in 1:length(hessian_m)){
+  fisher_info <- solve(hessian_m[[i]])
+  Results$se_p1[i]<- sqrt(diag(fisher_info))[1]
+  Results$se_p2[i]<- sqrt(diag(fisher_info))[2]
+  Results$se_p3[i]<- sqrt(diag(fisher_info))[3]
+  }
+```
+
